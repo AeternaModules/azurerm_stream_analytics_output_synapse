@@ -22,5 +22,69 @@ EOT
     table                     = string
     user                      = string
   }))
+  validation {
+    condition = alltrue([
+      for k, v in var.stream_analytics_output_synapses : (
+        length(v.name) > 0
+      )
+    ])
+    error_message = "must not be empty"
+  }
+  validation {
+    condition = alltrue([
+      for k, v in var.stream_analytics_output_synapses : (
+        length(v.stream_analytics_job_name) > 0
+      )
+    ])
+    error_message = "must not be empty"
+  }
+  validation {
+    condition = alltrue([
+      for k, v in var.stream_analytics_output_synapses : (
+        length(v.resource_group_name) > 0
+      )
+    ])
+    error_message = "must not be empty"
+  }
+  validation {
+    condition = alltrue([
+      for k, v in var.stream_analytics_output_synapses : (
+        length(v.server) > 0
+      )
+    ])
+    error_message = "must not be empty"
+  }
+  validation {
+    condition = alltrue([
+      for k, v in var.stream_analytics_output_synapses : (
+        length(v.database) > 0
+      )
+    ])
+    error_message = "must not be empty"
+  }
+  validation {
+    condition = alltrue([
+      for k, v in var.stream_analytics_output_synapses : (
+        length(v.table) > 0
+      )
+    ])
+    error_message = "must not be empty"
+  }
+  validation {
+    condition = alltrue([
+      for k, v in var.stream_analytics_output_synapses : (
+        length(v.user) > 0
+      )
+    ])
+    error_message = "must not be empty"
+  }
+  validation {
+    condition = alltrue([
+      for k, v in var.stream_analytics_output_synapses : (
+        length(v.password) > 0
+      )
+    ])
+    error_message = "must not be empty"
+  }
 }
 
