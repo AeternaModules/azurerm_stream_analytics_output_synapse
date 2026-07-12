@@ -5,6 +5,8 @@ Required:
     - database
     - name
     - password
+    - password_key_vault_id (alternative to password - read from Key Vault instead)
+    - password_key_vault_secret_name (alternative to password - read from Key Vault instead)
     - resource_group_name
     - server
     - stream_analytics_job_name
@@ -13,14 +15,16 @@ Required:
 EOT
 
   type = map(object({
-    database                  = string
-    name                      = string
-    password                  = string
-    resource_group_name       = string
-    server                    = string
-    stream_analytics_job_name = string
-    table                     = string
-    user                      = string
+    database                       = string
+    name                           = string
+    password                       = string
+    password_key_vault_id          = optional(string)
+    password_key_vault_secret_name = optional(string)
+    resource_group_name            = string
+    server                         = string
+    stream_analytics_job_name      = string
+    table                          = string
+    user                           = string
   }))
   validation {
     condition = alltrue([
