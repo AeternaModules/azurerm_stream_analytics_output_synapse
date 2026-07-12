@@ -1,3 +1,7 @@
+output "stream_analytics_output_synapses_id" {
+  description = "Map of id values across all stream_analytics_output_synapses, keyed the same as var.stream_analytics_output_synapses"
+  value       = { for k, v in azurerm_stream_analytics_output_synapse.stream_analytics_output_synapses : k => v.id }
+}
 output "stream_analytics_output_synapses_database" {
   description = "Map of database values across all stream_analytics_output_synapses, keyed the same as var.stream_analytics_output_synapses"
   value       = { for k, v in azurerm_stream_analytics_output_synapse.stream_analytics_output_synapses : k => v.database }
